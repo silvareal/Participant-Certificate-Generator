@@ -1,0 +1,38 @@
+.cert-sample {
+    max-width: 550px;
+    min-height: 300px;
+    margin: 0 auto;
+    filter: blur(2px);
+    position: relative;
+    -moz-user-select: none;
+}
+
+.participant-name {
+    color: #6c6f7b;
+    position: absolute;
+    top: 38%;
+    left: 12%;
+    font-size: 1.2;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 437px) {
+    .participant-name {
+      top: 35%;
+      font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 370px) {
+  .participant-name {
+    top: 33%;
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .participant-name {
+    top: 30%;
+    font-size: 1em;
+  }
+}

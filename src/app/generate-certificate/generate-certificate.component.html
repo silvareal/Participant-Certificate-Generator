@@ -1,0 +1,49 @@
+<ng-template #customLoadingTemplate>
+  <div class="custom-class"></div>
+</ng-template>
+<div class="container-fluid">
+  <div class="p-3 mt-5 shadow rounded bg-light" style="max-width: 450px; margin: 0 auto;">
+    <form class="mt-4" [formGroup]="generateCertificateForm" (ngSubmit)="loginForm()">
+
+      <div class="form-group">
+        <label for="id">Unique ID</label>
+        <input type="id" class="form-control" formControlName="unique_id" id="email"
+          placeholder="9b977886-1469-43c7-8c19-c39c6729a937"
+          pattern="[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          aria-describedby="Unique ID" [ngClass]="{'is-invalid': (generateCertificateForm.get('unique_id').touched ||
+          generateCertificateForm.get('unique_id').dirty) && !generateCertificateForm.get('unique_id').valid}">
+
+        <div
+          *ngIf="generateCertificateForm.get('unique_id').invalid &&  generateCertificateForm.get('unique_id').touched">
+          <small *ngIf="generateCertificateForm.get('unique_id').errors?.pattern" class="text-danger pb-2">Invalid ID
+            😞</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">passcode</label>
+        <input type="text" id="password" formControlName="password" class="form-control" placeholder="90192930"
+          aria-describedby="password" [ngClass]="{'is-invalid': (generateCertificateForm.get('password').touched ||
+          generateCertificateForm.get('password').dirty) && !generateCertificateForm.get('password').valid}">
+      </div>
+
+      <input [disabled]="!generateCertificateForm.valid" class="btn btn-success w-100 mt-4" type="submit"
+        value="Generate Certificate">
+    </form>
+  </div>
+
+  <div *ngIf="participant_detail_invalid" class="rounded cert-sample mt-5">
+    <img class="img-fluid" src="https://res.cloudinary.com/silva/image/upload/v1590794178/test-cert.png.jpg"
+      alt="test-cert">
+  </div>
+
+  <div *ngIf="!participant_detail_invalid" class="rounded cert-sample mt-5" style="filter: blur(0);">
+    <h1 class="participant-name">{{ participant_detail.first_name }} {{ participant_detail.last_name }}</h1>
+    <img class="img-fluid" src="https://res.cloudinary.com/silva/image/upload/v1590794178/test-cert.png.jpg"
+      alt="test-cert">
+    <button class="w-100 btn btn-primary text-center mt-3" (click)="generatePdf()">Download Certificate</button>
+  </div>
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
+</ngx-loading>

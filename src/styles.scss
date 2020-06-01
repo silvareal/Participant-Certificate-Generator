@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+// regular style toast
+
+// if you'd like to use it without importing all of bootstrap it requires 
+@import "~bootstrap/scss/bootstrap";
+@import '~ngx-toastr/toastr-bs4-alert';
+
+*,
+html {
+font-family: 'Ubuntu',
+    Helvetica,
+    sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Boostrap placeholder
+.form-control::-webkit-input-placeholder {
+  color: #abb1bd;
+  font-weight: 100;
+}
+
+.form-control::-moz-placeholder {
+  color: #abb1bd;
+  font-weight: 100;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #abb1bd;
+  font-weight: 100;
+}
+
+.form-control::placeholder {
+  color: #abb1bd;
+  font-weight: 100;
+}
+
+.btn-primary {
+  background-color: #1ca0d2 !important;
+  transition: .5s all;
+  font-weight: 100;
+}
+
+.btn-primary:hover {
+  background-color: #1886ad !important;
+}
+
+.bg-custom-background {
+//   background: #fbfbfb;
+background: #05071a;
+}
+
+.bg-light {
+  background-color: #f1f6fa !important
+}
+
+#toast-container>div {
+  opacity: 1;
+}
