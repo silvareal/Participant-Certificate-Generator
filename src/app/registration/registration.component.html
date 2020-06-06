@@ -1033,51 +1033,6 @@
               email 😞</small>
           </div>
         </div>
-
-
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="text" formControlName="phone_number" class="form-control" id="phone"
-            placeholder="+23408183747384" pattern="^\+[0-9]{10,18}" minlength="9" aria-describedby="Phone Number" [ngClass]="{'is-invalid': (participantForm.get('phone_number').touched ||
-            participantForm.get('phone_number').dirty) && !participantForm.get('phone_number').valid}">
-          <div *ngIf="participantForm.get('phone_number').invalid &&  participantForm.get('phone_number').touched">
-            <div *ngIf="participantForm.get('phone_number').errors.pattern">
-              <small class="text-danger pb-2">
-                Enter your phonenumber with your <a
-                  href="https://www.countryareacode.net/en/list-of-countries-according-to-continent" target="_blank"
-                  rel="noopener noreferrer">country code</a> . e.g +23408187163082
-              </small>
-            </div>
-
-            <div
-              *ngIf="participantForm.get('phone_number').errors.minlength">
-              <small class="text-danger pb-2">
-                phone number shouldn't be less than <b>9</b> or greater than
-              </small>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="form-group">
-          <label for="speciaty">Area of Specialty</label>
-          <input type="text" id="speciaty" formControlName="area_of_specialty" class="form-control"
-            placeholder="Software Developer, Student, Business..." aria-describedby="Area of Specialty" [ngClass]="{'is-invalid': (participantForm.get('area_of_specialty').touched ||
-            participantForm.get('area_of_specialty').dirty) && !participantForm.get('area_of_specialty').valid}">
-        </div>
-
-        <!-- <div class="form-group">
-          <label for="photograph">Passport Photograph</label>
-          <div class="custom-file">
-            <input type="file" formControlName="passport" class="custom-file-input" id="photograph1"
-              aria-describedby="photograph photograph" [ngClass]="{'is-invalid':
-              (participantForm.get('passport').touched ||
-              participantForm.get('passport').dirty) && !participantForm.get('passport').valid}">
-            <div class="custom-file-label text-muted" for="photograph1">Choose file</div>
-          </div>
-        </div> -->
-
         <input [disabled]="!participantForm.valid" class="btn btn-success w-100 mt-4" type="submit" value="Register">
       </form>
     </div>

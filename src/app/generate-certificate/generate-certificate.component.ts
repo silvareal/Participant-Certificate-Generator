@@ -67,7 +67,6 @@ export class GenerateCertificateComponent implements OnInit {
   generatePdf() {
     this.fullname = `${this.participant_detail.first_name} ${this.participant_detail.last_name}`
     
-    console.log("reached")
     this.documentDefinition = {
       pageSize: {
         width: 1000,

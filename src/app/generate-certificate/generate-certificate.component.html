@@ -2,7 +2,8 @@
   <div class="custom-class"></div>
 </ng-template>
 <div class="container-fluid">
-  <div class="p-3 mt-5 shadow rounded bg-light" style="max-width: 450px; margin: 0 auto;">
+  <div *ngIf="participant_detail_invalid" class=" p-3 mt-5 shadow rounded bg-light"
+    style="max-width: 450px; margin: 0 auto;">
     <form class="mt-4" [formGroup]="generateCertificateForm" (ngSubmit)="loginForm()">
 
       <div class="form-group">
@@ -33,7 +34,7 @@
   </div>
 
   <div *ngIf="participant_detail_invalid" class="rounded cert-sample mt-5">
-    <img class="img-fluid" src="https://res.cloudinary.com/silva/image/upload/v1590794178/test-cert.png.jpg"
+    <img class="img-fluid" src="https://res.cloudinary.com/silva/image/upload/v1590591121/cert.png"
       alt="test-cert">
   </div>
 

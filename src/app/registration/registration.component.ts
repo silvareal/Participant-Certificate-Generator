@@ -22,8 +22,6 @@ export class RegistrationComponent implements OnInit {
       email: ['', Validators.required],
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-      phone_number: ['', Validators.required],
-      area_of_specialty: ['', Validators.required],
     });
   }
 
