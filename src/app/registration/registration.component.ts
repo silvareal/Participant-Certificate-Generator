@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  public loading = false;
+  public load = false;
+  
   participantForm: FormGroup;
   errorMessage: string;
 
@@ -26,19 +27,19 @@ export class RegistrationComponent implements OnInit {
   }
 
   saveForm() {
-    this.loading = true;
+    this.load = true;
     if (this.participantForm.valid) {
       this.userService.registerUser(this.participantForm.value).subscribe
       (resp => {
         if (!resp) {
           this.toastr.error('Email Error (email already exists or unable to validate)')
           this.toastr.error('registration error')
-          this.loading = false;
+          this.load = false;
         } else {
           this.toastr.info('your uniqueID and passcode has been sent to your mail')
           this.toastr.success('registration successfull')
           this.router.navigate(['/generate-certificate']);
-          this.loading = false;
+          this.load = false;
         }
       })
     } else {

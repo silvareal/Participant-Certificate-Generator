@@ -10,8 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
-import { NgxLoadingModule } from 'ngx-loading';
-
+import { NgxLoadingXModule } from 'ngx-loading-x';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +27,7 @@ import { NgxLoadingModule } from 'ngx-loading';
       timeOut: 300000,
       preventDuplicates: true,
     }),
-    NgxLoadingModule.forRoot({})
+    NgxLoadingXModule
   ],
   providers: [],
   bootstrap: [AppComponent]

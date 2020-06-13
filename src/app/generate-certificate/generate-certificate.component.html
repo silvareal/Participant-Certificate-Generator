@@ -1,7 +1,5 @@
-<ng-template #customLoadingTemplate>
-  <div class="custom-class"></div>
-</ng-template>
-<div class="container-fluid">
+
+<div NgxLoadingXBlur blur="5" class="container-fluid">
   <div *ngIf="participant_detail_invalid" class=" p-3 mt-5 shadow rounded bg-light"
     style="max-width: 450px; margin: 0 auto;">
     <form class="mt-4" [formGroup]="generateCertificateForm" (ngSubmit)="loginForm()">
@@ -46,5 +44,4 @@
   </div>
 </div>
 
-<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
-</ngx-loading>
+<ngx-loading-x [show]="loading"></ngx-loading-x>
