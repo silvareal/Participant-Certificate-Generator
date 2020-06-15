@@ -1,15 +1,15 @@
 
-<div NgxLoadingXBlur blur="5" class="container-fluid">
+<div NgxLoadingXBlur blur="2" [show]="loading" class="container-fluid">
   <div *ngIf="participant_detail_invalid" class=" p-3 mt-5 shadow rounded bg-light"
     style="max-width: 450px; margin: 0 auto;">
     <form class="mt-4" [formGroup]="generateCertificateForm" (ngSubmit)="loginForm()">
 
       <div class="form-group">
         <label for="id">Unique ID</label>
-        <input type="id" class="form-control" formControlName="unique_id" id="email"
-          placeholder="9b977886-1469-43c7-8c19-c39c6729a937"
+        <input (keydown)="removeIdWSEvent($event)" type="id" class="form-control" formControlName="unique_id" id="email"
+          placeholder="5a22b7b3-70f7-4895-accb-6d2ad7b61262"
           pattern="[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$"
-          aria-describedby="Unique ID" [ngClass]="{'is-invalid': (generateCertificateForm.get('unique_id').touched ||
+          aria-describedby="Unique ID" maxlength="36" [ngClass]="{'is-invalid': (generateCertificateForm.get('unique_id').touched ||
           generateCertificateForm.get('unique_id').dirty) && !generateCertificateForm.get('unique_id').valid}">
 
         <div
@@ -21,7 +21,8 @@
 
       <div class="form-group">
         <label for="password">passcode</label>
-        <input type="text" id="password" formControlName="password" class="form-control" placeholder="90192930"
+        <input (keydown)="removePassWSEvent($event)" type="text" id="password" formControlName="password"
+          class="form-control" placeholder="90192930"
           aria-describedby="password" [ngClass]="{'is-invalid': (generateCertificateForm.get('password').touched ||
           generateCertificateForm.get('password').dirty) && !generateCertificateForm.get('password').valid}">
       </div>

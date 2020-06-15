@@ -39,15 +39,14 @@ export class GenerateCertificateComponent implements OnInit {
           this.toastr.error('Invalid credentials 😎')
           this.loginInvalid = true;
           this.loading = false;
-          console.log('invalid login')
         } else {
           this.loading = false;
           this.participant_detail_invalid = false;
           // Get the user detail for certificate generation
           this.userService.getUser().subscribe(
             data => {
-              this.participant_detail.first_name = data.first_name;
-              this.participant_detail.last_name = data.last_name;
+              this.participant_detail.first_name = data.first_name.trim();
+              this.participant_detail.last_name = data.last_name.trim();
               this.loading = false;
               this.toastr.success("Your certificate has been successfully generated")
             },
@@ -90,5 +89,19 @@ export class GenerateCertificateComponent implements OnInit {
         }
     ]};
     pdfMake.createPdf(this.documentDefinition).download('cyberpeace-africa-cerficate.pdf');
+  }
+
+  removeIdWSEvent(event: any) {
+    const value = event.target.value
+    event.target.value = value.trim()
+  }
+
+  // removeIdWSPasteEvent(event: ClipboardEvent) {
+  //   event.clipboardData.getData('text')
+  // }
+
+  removePassWSEvent(event: any) {
+    const value = event.target.value
+    event.target.value = value.trim()
   }
 }
